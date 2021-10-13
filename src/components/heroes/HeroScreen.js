@@ -1,6 +1,9 @@
 import React, { useMemo } from 'react'
 import { Redirect, useParams } from 'react-router-dom'
+import { heroImages } from '../../helpers/heroImages';
 import { getHeroById } from '../../selectors/getHeroById';
+// import batman from '../../assets/heroes/dc-batman.jpg'; // cargando contenido estático
+// const heroImages = require.context('../../assets/heroes', true); // gestion con webpack
 
 export const HeroScreen = ({ history }) => {
 
@@ -34,7 +37,9 @@ export const HeroScreen = ({ history }) => {
     <div className="row mt-5">
       <div className="col-4">
         <img 
-          src={ `../assets/heroes/${ heroId }.jpg` } 
+          // src={ `../assets/heroes/${ heroId }.jpg` } 
+          // src={ batman }
+          src={ heroImages( heroId, 'jpg' ) }
           className="img-thumbnail animate__animated animate__fadeInLeft" 
           alt={ superhero }
         />
